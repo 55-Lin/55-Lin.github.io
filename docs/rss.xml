@@ -1,5 +1,29 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://55-Lin.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://55-Lin.github.io</link></image><lastBuildDate>Fri, 12 Jun 2026 02:57:51 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>2026.6.12------关于二叉树的父节点回溯</title><link>https://55-Lin.github.io/post/2026.6.12-------guan-yu-er-cha-shu-de-fu-jie-dian-hui-su.html</link><description>``StringBuilder path = StringBuilder();
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://55-Lin.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://55-Lin.github.io</link></image><lastBuildDate>Tue, 16 Jun 2026 01:21:51 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>2026.6.15 ------ 链表算法-龟兔赛跑(快慢指针)算法</title><link>https://55-Lin.github.io/post/2026.6.15%20------%20-lian-biao-suan-fa---gui-tu-sai-pao-%28-kuai-man-zhi-zhen-%29-suan-fa.html</link><description>应用情景:
+1.寻找中间节点；
+2.判断是否为环(看快指针是否会与慢指针相遇)；
+3.寻找入环节点(在第一次相遇后，将其中一个指针指向头节点，然后两个指针都向前只走一步，再次相遇即是其入环节点)；
+4.寻找重复数(给出的数组类似于隐形的链表结构即寻找其入环节点)
+``class Solution {
+    public int findDuplicate(int[] nums) {
+        // 第一阶段：寻找相遇点
+        int slow = nums[0];
+        int fast = nums[nums[0]];
+        while (slow != fast) {
+            slow = nums[slow];          // 龟：每次走1步
+            fast = nums[nums[fast]];    // 兔：每次走2步
+        }
+        
+        // 第二阶段：寻找入环节点（即重复的数字）
+        int find = 0;
+        while (find != slow) {
+            find = nums[find];
+            slow = nums[slow];
+        }
+        
+        return find;
+    }＂
+。</description><guid isPermaLink="true">https://55-Lin.github.io/post/2026.6.15%20------%20-lian-biao-suan-fa---gui-tu-sai-pao-%28-kuai-man-zhi-zhen-%29-suan-fa.html</guid><pubDate>Tue, 16 Jun 2026 01:21:14 +0000</pubDate></item><item><title>2026.6.12------关于二叉树的父节点回溯</title><link>https://55-Lin.github.io/post/2026.6.12-------guan-yu-er-cha-shu-de-fu-jie-dian-hui-su.html</link><description>``StringBuilder path = StringBuilder();
 int len = path.length(); //用来记录当前长度，如1-&gt;2
 if(root.left == null &amp;&amp; root.right == null){
       ans.add(path.toString());
